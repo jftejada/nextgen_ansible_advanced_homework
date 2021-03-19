@@ -1,5 +1,15 @@
 - name: Create Homework Assignment project
-
+  tower_project:
+    name: "{{ proj_name }}"
+    description: "Homework Assignment project"
+    organization: "{{ org_name }}"
+    scm_type: "git"
+    scm_url: "{{ scm_url }}"
+    scm_branch: "{{ scm_branch }}"
+    scm_update_on_launch: True
+    scm_update_cache_timeout: 60    
+    tower_host: tower1.{{tower_GUID}}.example.opentlc.com
+    state: present
 
 - name: Machine Credentail to connect to workstation using openstack.pub
   tower_credential:
@@ -21,7 +31,6 @@
   command: |
     tower-cli group create --inventory "{{static_inventory_name}}"  --name {{group_name}}
 
-
 - name: Add tower host
   tower_host:
     name: "{{host_name}}"
@@ -32,6 +41,10 @@
     tower_username: admin
     tower_password: r3dh4t1!
     tower_verify_ssl: no
+
+- name: Add workstation host in tower_inventory 
+  command: |
+    tower-cli host create --inventory "{{static_inventory_name}}" --name "{{host_name}}"
 
 - name: Associate workstation host to group 
   command: | 
