@@ -33,15 +33,10 @@
 - name: Run yum clean
   shell: yum clean all
   command: yum clean all
-#
-#
-#    #- name: setup hostname
-#    #  hostname:
-#    #    name: "{{ inventory_hostname }}"
-#     
+    
 - name: install base tools and packages
   yum:
     name:
       - python-pip
-#     - gcc
+      - gcc
     sate: latest
