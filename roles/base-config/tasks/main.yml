@@ -31,7 +31,7 @@
   command: rm /etc/yum.repos.d/epel*
 
 - name: Run yum clean
-  shell: yum clean all
+#  shell: yum clean all
   command: yum clean all
     
 - name: install base tools and packages
