@@ -117,3 +117,19 @@ To overcome this, create a new credencial called Opentlc key test * and insert y
 ### Notes  2
 
 On the last one thre is a mistake because the playbook use the public IP to check the status that is frobidden, a workaround could be use the internal IP to test.
+
+## Note 3
+
+On the site-smoke-test-aws.ym ans in the grading-script.yml have the same error on the lb configuration for the QA run well the template
+
+		-- server app{{loop.index}} {{hostvars[host]['inventory_hostname']}}:8080 cookie app{{loop.index}} check
+
+But for de AWX environmet must be changes for 
+
+		-- erver app{{loop.index}} {{hostvars[host]['private_ip_address']}}:8080 cookie app{{loop.index}} check
+		
+This is the reason why it do not runs well ans answer Service is unavailable.
+
+
+
+
