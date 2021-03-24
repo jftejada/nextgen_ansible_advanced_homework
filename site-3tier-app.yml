@@ -3,14 +3,19 @@
   roles:
   - name: osp-facts
 
-# Setup front-end load balancer tier
+- name: Setup base OS configuration
+  hosts: frontends,apps,appdbs
+  become: yes
+  gather_facts: false
+  roles:
+    - {name: base-config, tags: base-config}
 
+# Setup front-end load balancer tier
 
 - name: setup load-balancer tier
   hosts: frontends
   become: yes
   roles:
-    - {name: base-config, tags: base-config}
     - {name: lb-tier, tags: [lbs, haproxy]}
 
 # Setup application servers tier
@@ -20,7 +25,6 @@
   become: yes
   gather_facts: false
   roles:
-    - {name: base-config, tags: base-config}
     - {name: app-tier, tags: [apps, tomcat]}
 
 # Setup database tier
@@ -29,5 +33,4 @@
   become: yes
   hosts: appdbs
   roles:
-    - {name: base-config, tags: base-config}
     - {name: db-tier, tags: [dbs, postgres]}
