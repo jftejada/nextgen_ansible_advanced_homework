@@ -42,10 +42,6 @@
     tower_password: r3dh4t1!
     tower_verify_ssl: no
 
-- name: Add workstation host in tower_inventory 
-  command: |
-    tower-cli host create --inventory "{{static_inventory_name}}" --name "{{host_name}}"
-
 - name: Associate workstation host to group 
   command: | 
     tower-cli host associate --host "{{host_name}}" --group "{{group_name}}"
