@@ -63,15 +63,15 @@ From your web browser, connect to tower1.${TOWER_GUID}.example.opentlc.com to ve
          -- 02_Provision QA Env
          -- 04_3tier app deployment on QA Env 
          -- 05_Smoke test QA Env 
-         -- 07_Prod Check the status of AWS instances 
+         -- 07_Prod Check the status of AWS instances
+         -- 08_Prod SSH keys 
          -- 09_3 tier app on Prod 
          -- 10_Smoke test Prod env
          -- cicd_workflow
          -- Demo Job Template
          -- Plantilla de trabajo
          -- Nuke QA Env
-         -- Plantilla de trabajo
-
+         
 ### Credencials
 
 .List of Credencials
@@ -87,10 +87,6 @@ From your web browser, connect to tower1.${TOWER_GUID}.example.opentlc.com to ve
 | yum-repo-cred             | Vault
 |===
 
-### Notes
-
-Connection to prod bastion instance didn't work for my user, therefore step **08_Prod SSH keys three tier app** failed.
-To overcome this, create a new credencial called Opentlc key test * and insert your bastion´s access password and re-run the workflow from failed step or from start.
 
 ## Inventories
 
@@ -111,11 +107,13 @@ Like there is an error with the SSH key , please revie Notes* you need to run th
 		-- Provision instances on AWS using order_svc.sh script for the production environment
 		-- Deploy the application in the production environment
 		-- Run the smoke test to verify the application
+
+
 ### Notes 1
 
 Connection to prod bastion instance didn't work for my user, therefore step **08_Prod SSH keys three tier app** failed.
 To overcome this, create a new credencial called Opentlc key test * and insert your bastion´s access password and re-run the workflow from failed step or from start.
 
-### Notes 2
+### Notes  2
 
 On the last one thre is a mistake because the playbook use the public IP to check the status that is frobidden, a workaround could be use the internal IP to test.
