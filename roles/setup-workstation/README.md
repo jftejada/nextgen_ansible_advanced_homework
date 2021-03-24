@@ -1,7 +1,7 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+Configure server to serve as workstation for purpose of homework assignment project.
 
 Requirements
 ------------

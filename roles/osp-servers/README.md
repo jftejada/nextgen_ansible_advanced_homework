@@ -1,7 +1,7 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+Role to create Openstack instances defined in variable
 
 Requirements
 ------------
