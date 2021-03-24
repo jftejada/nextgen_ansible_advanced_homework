@@ -111,5 +111,11 @@ Like there is an error with the SSH key , please revie Notes* you need to run th
 		-- Provision instances on AWS using order_svc.sh script for the production environment
 		-- Deploy the application in the production environment
 		-- Run the smoke test to verify the application
+### Notes 1
 
-On the last one thre is a mistake because the playbook use the public IP to check the status that is frobidden, a workaround could be use the internal IP to test
+Connection to prod bastion instance didn't work for my user, therefore step **08_Prod SSH keys three tier app** failed.
+To overcome this, create a new credencial called Opentlc key test * and insert your bastion´s access password and re-run the workflow from failed step or from start.
+
+### Notes 2
+
+On the last one thre is a mistake because the playbook use the public IP to check the status that is frobidden, a workaround could be use the internal IP to test.
